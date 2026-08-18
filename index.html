@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asep Saepullah — Full Stack Developer | saepullrock.tech</title>
+  <meta name="description" content="Portfolio Asep Saepullah — Full Stack Developer. Membangun aplikasi web yang user-friendly dengan UI/UX terbaik. Laravel, Filament, PHP, JavaScript, dan lainnya.">
+  <meta name="author" content="Asep Saepullah">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Asep Saepullah — Full Stack Developer">
+  <meta property="og:description" content="Membangun aplikasi web yang user-friendly dengan UI/UX terbaik.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saepullrock.tech">
+  <link rel="canonical" href="https://saepullrock.tech">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="navbar__logo">&lt;<span>idnx</span>/&gt;</a>
+
+      <div class="navbar__links">
+        <a href="#tentang" class="navbar__link">Tentang</a>
+        <a href="#keahlian" class="navbar__link">Keahlian</a>
+        <a href="#proyek" class="navbar__link">Proyek</a>
+        <a href="#kontak" class="navbar__link">Kontak</a>
+      </div>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle tema">
+          <div class="theme-toggle__knob">
+            <span class="theme-icon-dark">🌙</span>
+            <span class="theme-icon-light" style="display:none;">☀️</span>
+          </div>
+        </button>
+        <div class="navbar__burger" id="navbar-burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE OVERLAY ============ -->
+  <div class="mobile-overlay" id="mobile-overlay">
+    <div class="mobile-overlay__links">
+      <a href="#tentang" class="mobile-overlay__link">Tentang</a>
+      <a href="#keahlian" class="mobile-overlay__link">Keahlian</a>
+      <a href="#proyek" class="mobile-overlay__link">Proyek</a>
+      <a href="#kontak" class="mobile-overlay__link">Kontak</a>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="particle-canvas"></canvas>
+    <div class="hero__mesh"></div>
+    <div class="container hero__content">
+      <p class="hero__greeting font-mono">// halo, perkenalkan saya</p>
+      <h1 class="hero__name">
+        <span id="typing-name" data-text="Asep Saepullah"></span><span class="cursor" id="typing-cursor"></span>
+      </h1>
+      <p class="hero__title">Seorang <span>Full Stack Developer</span></p>
+      <p class="hero__desc">
+        Saya selalu memastikan setiap aplikasi yang dibangun tidak hanya berfungsi dengan baik, 
+        tetapi juga <strong>user-friendly</strong> dan <strong>nyaman secara visual</strong>. 
+        UI/UX yang tepat guna adalah prioritas utama saya.
+      </p>
+      <div class="hero__actions">
+        <a href="#proyek" class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Lihat Proyek
+        </a>
+        <a href="#kontak" class="btn btn--outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Hubungi Saya
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <div class="mouse"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="tentang">
+    <div class="container">
+      <div class="about__grid reveal">
+        <div class="about__photo-wrapper">
+          <div class="about__photo-ring">
+            <img src="assets/images/profile.png" alt="Asep Saepullah" class="about__photo">
+          </div>
+          <div class="about__photo-dot"></div>
+        </div>
+
+        <div class="about__info">
+          <div>
+            <p class="section-label">Tentang Saya</p>
+            <h2 class="section-title">Membangun Aplikasi yang <span class="gradient-text">Fungsional & Nyaman</span></h2>
+          </div>
+          <p class="about__bio">
+            Saya <strong>Asep Saepullah</strong>, seorang Full Stack Developer yang berfokus pada pengembangan 
+            aplikasi web berkualitas tinggi. Bagi saya, aplikasi yang baik bukan hanya soal logika yang berjalan sempurna — 
+            tapi juga tentang bagaimana pengguna merasakannya. Setiap baris kode yang saya tulis selalu mempertimbangkan 
+            <strong>kenyamanan UI/UX</strong> dan <strong>kebutuhan nyata pengguna</strong>.
+          </p>
+          <p class="about__bio">
+            Dari sistem ERP perusahaan hingga landing page yang memukau, saya terbiasa menangani 
+            berbagai jenis proyek dengan standar kualitas yang konsisten.
+          </p>
+
+          <div class="about__stats">
+            <div class="stat-card">
+              <div class="stat-card__number gradient-text">Puluhan</div>
+              <div class="stat-card__label">Proyek Selesai</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number gradient-text">10+</div>
+              <div class="stat-card__label">Teknologi</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__number gradient-text">UI/UX</div>
+              <div class="stat-card__label">Fokus Utama</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="keahlian">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Keahlian</p>
+        <h2 class="section-title">Tech Stack & <span class="gradient-text">Skill Set</span></h2>
+        <p class="section-desc">Teknologi yang saya gunakan sehari-hari untuk membangun aplikasi berkualitas.</p>
+      </div>
+
+      <div class="skills__grid" style="margin-top: 2rem;">
+        <!-- Backend -->
+        <div class="skill-group reveal reveal-delay-1">
+          <h3 class="skill-group__title"><span class="icon">⚙️</span> Backend</h3>
+          <div class="skill-group__items">
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">PHP</span>
+                <span class="skill-item__level">95%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Laravel</span>
+                <span class="skill-item__level">92%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="92%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Filament</span>
+                <span class="skill-item__level">90%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">MoonShine</span>
+                <span class="skill-item__level">80%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Python</span>
+                <span class="skill-item__level">60%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="skill-group reveal reveal-delay-2">
+          <h3 class="skill-group__title"><span class="icon">🎨</span> Frontend</h3>
+          <div class="skill-group__items">
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">HTML5 & CSS3</span>
+                <span class="skill-item__level">95%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">JavaScript</span>
+                <span class="skill-item__level">85%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Tailwind CSS</span>
+                <span class="skill-item__level">90%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Alpine.js</span>
+                <span class="skill-item__level">80%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Database & Infra -->
+        <div class="skill-group reveal reveal-delay-3">
+          <h3 class="skill-group__title"><span class="icon">🗄️</span> Database & Infrastruktur</h3>
+          <div class="skill-group__items">
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">MySQL / MariaDB</span>
+                <span class="skill-item__level">90%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">Git & GitHub</span>
+                <span class="skill-item__level">85%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">PWA</span>
+                <span class="skill-item__level">80%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name">MikroTik</span>
+                <span class="skill-item__level">70%</span>
+              </div>
+              <div class="skill-item__bar"><div class="skill-item__fill" data-width="70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="projects" id="proyek">
+    <div class="container">
+      <div class="projects__header reveal">
+        <div>
+          <p class="section-label">Proyek</p>
+          <h2 class="section-title">Karya & <span class="gradient-text">Portofolio</span></h2>
+          <p class="section-desc">Beberapa proyek yang telah saya kerjakan — dari sistem enterprise hingga landing page kreatif.</p>
+        </div>
+        <div class="projects__filters">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="aplikasi">Aplikasi</button>
+          <button class="filter-btn" data-filter="website">Website</button>
+          <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+          <button class="filter-btn" data-filter="lainnya">Lainnya</button>
+        </div>
+      </div>
+
+      <div class="projects__grid">
+
+        <!-- 1. Wijaya Meat ERP -->
+        <div class="project-card reveal" data-category="enterprise">
+          <div class="project-card__image">
+            <img src="assets/images/projects/swm_erp.png" alt="Wijaya Meat ERP">
+            <span class="badge project-card__badge">Enterprise</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">ERP PT. Santi Wijaya Meat</h3>
+            <p class="project-card__desc">Sistem ERP full-scale untuk perusahaan daging wholesale — modul pembelian, penjualan, barcode tracking, manajemen stok, dan keuangan. Migrasi dari legacy PHP ke arsitektur modern.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel 11</span>
+              <span class="tag">Filament v3</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">OpenSpout</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sistem Presensi GPS -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image">
+            <img src="assets/images/projects/presensi.png" alt="Sistem Presensi GPS">
+            <span class="badge project-card__badge">Web App</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Sistem Presensi GPS & Selfie</h3>
+            <p class="project-card__desc">Aplikasi absensi karyawan berbasis PWA — validasi selfie, geofencing GPS, multi-lokasi, manajemen shift, helpdesk tiket, dan export laporan Excel/PDF.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel 11</span>
+              <span class="tag">Filament v3</span>
+              <span class="tag">PWA</span>
+              <span class="tag">GPS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SaaS Undangan Digital -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image">
+            <img src="assets/images/projects/invit.png" alt="SaaS Undangan Digital">
+            <span class="badge project-card__badge">SaaS</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Platform Undangan Digital</h3>
+            <p class="project-card__desc">Platform SaaS undangan pernikahan digital dengan arsitektur multi-tenant. Klien self-service, template dinamis, panel admin & client terpisah.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel 13</span>
+              <span class="tag">Filament v5</span>
+              <span class="tag">Multi-Tenant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Warganet Management -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image">
+            <img src="assets/images/projects/warganet.png" alt="Warganet Management">
+            <span class="badge project-card__badge">Web App</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Warganet Management System</h3>
+            <p class="project-card__desc">Sistem manajemen langganan internet — billing otomatis, pencatatan pembayaran, pengeluaran, dan penarikan dividen. Wrapped sebagai Android PWA app.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">MoonShine v3</span>
+              <span class="tag">PWA</span>
+              <span class="tag">Android</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Mbok Dewor Puding -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image">
+            <img src="assets/images/projects/pudding.png" alt="Mbok Dewor Puding">
+            <span class="badge project-card__badge">Web App</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Mbok Dewor Puding</h3>
+            <p class="project-card__desc">Website bisnis F&B puding — landing page yang menarik untuk katalog produk dilengkapi admin panel untuk manajemen produk dan pesanan.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel 13</span>
+              <span class="tag">Filament 3</span>
+              <span class="tag">Alpine.js</span>
+              <span class="tag">Swiper</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. POS RubyMedia -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image">
+            <img src="assets/images/projects/pos_ruby.png" alt="POS RubyMedia">
+            <span class="badge project-card__badge">POS</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Aplikasi POS RubyMedia</h3>
+            <p class="project-card__desc">Sistem Point of Sale lengkap untuk manajemen transaksi penjualan, inventaris produk, laporan keuangan, dan kasir multi-user.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">Filament</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Pencatatan Kendaraan -->
+        <div class="project-card reveal" data-category="enterprise">
+          <div class="project-card__image">
+            <img src="assets/images/projects/kendaraan.png" alt="Pencatatan Kendaraan">
+            <span class="badge project-card__badge">SaaS</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Pencatatan Pengeluaran Kendaraan</h3>
+            <p class="project-card__desc">Sistem SaaS pencatatan pengeluaran operasional kendaraan — tracking biaya BBM, servis, pajak, dan maintenance armada secara terpusat.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">Filament</span>
+              <span class="tag">SaaS</span>
+              <span class="tag">Multi-Tenant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. ARTIC Company Profile -->
+        <div class="project-card reveal" data-category="website">
+          <div class="project-card__image">
+            <img src="assets/images/projects/artic.png" alt="ARTIC Company Profile">
+            <span class="badge project-card__badge">Website</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">ARTIC Company Profile</h3>
+            <p class="project-card__desc">Website company profile modern untuk Transwater Robery Indonesia (ARTIC) — brand air minum. Hero section visual, galeri produk, dan halaman kontak.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Kavling Sukamakmur -->
+        <div class="project-card reveal" data-category="website">
+          <div class="project-card__image">
+            <img src="assets/images/projects/nanang.png" alt="Kavling Sukamakmur">
+            <span class="badge project-card__badge">Landing Page</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Landing Page Kavling Sukamakmur</h3>
+            <p class="project-card__desc">Landing page penjualan tanah kavling — desain Bento Grid, glassmorphism, nature theme dengan CTA WhatsApp untuk konversi tinggi.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Mobile-First</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. LeBeef -->
+        <div class="project-card reveal" data-category="website">
+          <div class="project-card__image">
+            <img src="assets/images/projects/leebeef.png" alt="LeBeef Frozen Food">
+            <span class="badge project-card__badge">Website</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">LeBeef — Frozen Food</h3>
+            <p class="project-card__desc">Website untuk bisnis frozen food — tampilan produk premium, katalog daging beku, dan informasi pemesanan yang mudah diakses.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. SWM Under Construction -->
+        <div class="project-card reveal" data-category="website">
+          <div class="project-card__image">
+            <img src="assets/images/projects/swm500.png" alt="SWM Under Construction">
+            <span class="badge project-card__badge">Creative</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">PT. SWM — Under Construction</h3>
+            <p class="project-card__desc">Halaman under construction kreatif dengan maskot sapi BX animasi — humor copywriting "website sedang di-marinasi" yang bikin pengunjung tersenyum.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">CSS Animation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. AI Job Search -->
+        <div class="project-card reveal" data-category="lainnya">
+          <div class="project-card__image project-card__image--placeholder">
+            <span>🤖</span>
+            <span class="badge project-card__badge">AI Tool</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">AI Job Search Assistant</h3>
+            <p class="project-card__desc">Framework pencarian kerja berbasis AI — auto-generate CV & cover letter LaTeX, evaluasi fit scoring, dan scraping multi-portal lowongan kerja.</p>
+            <div class="project-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Claude AI</span>
+              <span class="tag">LaTeX</span>
+              <span class="tag">Bun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Hotspot Login -->
+        <div class="project-card reveal" data-category="lainnya">
+          <div class="project-card__image">
+            <img src="assets/images/projects/hotspot.png" alt="Hotspot Login Page">
+            <span class="badge project-card__badge">Network</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">MikroTik Captive Portal</h3>
+            <p class="project-card__desc">Custom login page untuk hotspot MikroTik dengan branding korporat — autentikasi MD5 CHAP, responsive design, dan integrasi WhatsApp support.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">MikroTik</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="kontak">
+    <div class="container">
+      <div class="contact__inner reveal">
+        <p class="section-label" style="justify-content:center;">Kontak</p>
+        <h2 class="section-title">Tertarik <span class="gradient-text">Bekerja Sama?</span></h2>
+        <p class="contact__desc">
+          Punya proyek atau ide yang ingin diwujudkan? Saya selalu terbuka untuk diskusi 
+          dan kolaborasi. Jangan ragu untuk menghubungi saya.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:2rem;">
+          <a href="mailto:asepsaidung@gmail.com" class="btn btn--ghost" style="font-size:0.9rem;padding:0.6rem 1.4rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            asepsaidung@gmail.com
+          </a>
+          <a href="https://wa.me/6287808880393" target="_blank" rel="noopener" class="btn btn--ghost" style="font-size:0.9rem;padding:0.6rem 1.4rem;border-color:rgba(34,197,94,0.3);color:#22c55e;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            0878 0888 0393
+          </a>
+        </div>
+        <div class="contact__socials">
+          <!-- Facebook -->
+          <a href="https://facebook.com/saepullrock" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/asep_idung" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- Threads -->
+          <a href="https://threads.net/@asep_idung" target="_blank" rel="noopener" class="social-link" aria-label="Threads">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.781 3.632 2.695 6.54 2.717 2.227-.02 4.358-.631 5.49-1.982.876-1.044 1.308-2.493 1.284-4.305-.016-1.27-.377-2.267-1.07-2.964-.5-.504-1.174-.843-1.883-.99a8.71 8.71 0 01-.021 2.834c-.266 1.591-.845 2.8-1.72 3.593-1.017.921-2.405 1.389-4.124 1.389h-.066c-1.306-.01-2.435-.393-3.36-1.138-1.02-.822-1.594-1.99-1.578-3.208.025-1.907 1.481-3.424 3.8-3.956 1.212-.278 2.604-.34 4.146-.183.015-.756-.075-1.391-.297-1.856-.345-.725-1.016-1.093-1.993-1.093h-.049c-.71.005-1.3.244-1.748.71l-1.476-1.37c.752-.81 1.835-1.24 3.137-1.248h.078c1.538 0 2.725.569 3.428 1.644.598.914.88 2.126.84 3.604v.066c.023.003.045.005.068.008 1.146.175 2.137.656 2.878 1.407 1.017 1.031 1.551 2.47 1.573 4.272.03 2.254-.592 4.1-1.85 5.6-1.486 1.772-3.92 2.624-6.686 2.68zm-1.19-8.267c-1.07 0-2.018.135-2.82.401-1.36.45-2.098 1.276-2.113 2.36-.01.728.34 1.376.983 1.894.598.482 1.36.73 2.264.738h.05c1.198 0 2.152-.325 2.834-.966.594-.558 1.016-1.413 1.225-2.562a6.85 6.85 0 00.092-1.63c-.883-.148-1.72-.225-2.515-.235z"/></svg>
+          </a>
+          <!-- Telegram -->
+          <a href="https://t.me/saepullrock" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/6287808880393" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp" style="color:#22c55e;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 by <a href="#">idnx</a>. Crafted with ☕ & 💻</p>
+      <div class="footer__links">
+        <a href="https://facebook.com/saepullrock" target="_blank" rel="noopener" class="footer__link">Facebook</a>
+        <a href="https://instagram.com/asep_idung" target="_blank" rel="noopener" class="footer__link">Instagram</a>
+        <a href="https://t.me/saepullrock" target="_blank" rel="noopener" class="footer__link">Telegram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
