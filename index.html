@@ -13,14 +13,54 @@
   <meta property="og:url" content="https://saepullrock.tech">
   <link rel="canonical" href="https://saepullrock.tech">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <meta name="theme-color" content="#06060b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+  <meta property="og:image" content="https://saepullrock.tech/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Asep Saepullah — Full Stack Developer">
+  <meta name="twitter:description" content="Membangun aplikasi web yang user-friendly dengan UI/UX terbaik.">
+  <meta name="twitter:image" content="https://saepullrock.tech/assets/images/og-image.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Asep Saepullah",
+    "jobTitle": "Full Stack Developer",
+    "url": "https://saepullrock.tech",
+    "image": "https://saepullrock.tech/assets/images/profile.webp",
+    "email": "mailto:asepsaidung@gmail.com",
+    "knowsAbout": ["PHP", "Laravel", "Filament", "JavaScript", "Tailwind CSS", "MySQL", "PWA"],
+    "sameAs": [
+      "https://facebook.com/saepullrock",
+      "https://instagram.com/asep_idung",
+      "https://threads.net/@asep_idung",
+      "https://t.me/saepullrock"
+    ]
+  }
+  </script>
+  <!-- Terapkan tema sebelum render agar tidak berkedip -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a href="#tentang" class="skip-link">Lewati ke konten</a>
 
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
-      <a href="#" class="navbar__logo">&lt;<span>idnx</span>/&gt;</a>
+      <a href="#hero" class="navbar__logo" aria-label="Kembali ke beranda">&lt;<span>idnx</span>/&gt;</a>
 
       <div class="navbar__links">
         <a href="#tentang" class="navbar__link">Tentang</a>
@@ -33,12 +73,12 @@
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle tema">
           <div class="theme-toggle__knob">
             <span class="theme-icon-dark">🌙</span>
-            <span class="theme-icon-light" style="display:none;">☀️</span>
+            <span class="theme-icon-light">☀️</span>
           </div>
         </button>
-        <div class="navbar__burger" id="navbar-burger" aria-label="Menu">
+        <button class="navbar__burger" id="navbar-burger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-overlay">
           <span></span><span></span><span></span>
-        </div>
+        </button>
       </div>
     </div>
   </nav>
@@ -91,7 +131,7 @@
       <div class="about__grid reveal">
         <div class="about__photo-wrapper">
           <div class="about__photo-ring">
-            <img src="assets/images/profile.png" alt="Asep Saepullah" class="about__photo">
+            <img src="assets/images/profile.webp" alt="Asep Saepullah" class="about__photo" width="542" height="560" loading="lazy" decoding="async">
           </div>
           <div class="about__photo-dot"></div>
         </div>
@@ -279,7 +319,7 @@
         <!-- 1. Wijaya Meat ERP -->
         <div class="project-card reveal" data-category="enterprise">
           <div class="project-card__image">
-            <img src="assets/images/projects/swm_erp.png" alt="Wijaya Meat ERP">
+            <img src="assets/images/projects/swm_erp.webp" alt="Wijaya Meat ERP" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Enterprise</span>
           </div>
           <div class="project-card__content">
@@ -297,7 +337,7 @@
         <!-- 2. Sistem Presensi GPS -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/presensi.png" alt="Sistem Presensi GPS">
+            <img src="assets/images/projects/presensi.webp" alt="Sistem Presensi GPS" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Web App</span>
           </div>
           <div class="project-card__content">
@@ -315,7 +355,7 @@
         <!-- 3. SaaS Undangan Digital -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/invit.png" alt="SaaS Undangan Digital">
+            <img src="assets/images/projects/invit.webp" alt="SaaS Undangan Digital" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">SaaS</span>
           </div>
           <div class="project-card__content">
@@ -332,7 +372,7 @@
         <!-- 4. Warganet Management -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/warganet.png" alt="Warganet Management">
+            <img src="assets/images/projects/warganet.webp" alt="Warganet Management" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Web App</span>
           </div>
           <div class="project-card__content">
@@ -350,7 +390,7 @@
         <!-- 5. Mbok Dewor Puding -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/pudding.png" alt="Mbok Dewor Puding">
+            <img src="assets/images/projects/pudding.webp" alt="Mbok Dewor Puding" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Web App</span>
           </div>
           <div class="project-card__content">
@@ -368,7 +408,7 @@
         <!-- 6. POS RubyMedia -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/pos_ruby.png" alt="POS RubyMedia">
+            <img src="assets/images/projects/pos_ruby.webp" alt="POS RubyMedia" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">POS</span>
           </div>
           <div class="project-card__content">
@@ -385,7 +425,7 @@
         <!-- 7. Pencatatan Kendaraan -->
         <div class="project-card reveal" data-category="enterprise">
           <div class="project-card__image">
-            <img src="assets/images/projects/kendaraan.png" alt="Pencatatan Kendaraan">
+            <img src="assets/images/projects/kendaraan.webp" alt="Pencatatan Kendaraan" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">SaaS</span>
           </div>
           <div class="project-card__content">
@@ -403,7 +443,7 @@
         <!-- 8. ARTIC Company Profile -->
         <div class="project-card reveal" data-category="website">
           <div class="project-card__image">
-            <img src="assets/images/projects/artic.png" alt="ARTIC Company Profile">
+            <img src="assets/images/projects/artic.webp" alt="ARTIC Company Profile" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Website</span>
           </div>
           <div class="project-card__content">
@@ -420,7 +460,7 @@
         <!-- 9. Kavling Sukamakmur -->
         <div class="project-card reveal" data-category="website">
           <div class="project-card__image">
-            <img src="assets/images/projects/nanang.png" alt="Kavling Sukamakmur">
+            <img src="assets/images/projects/nanang.webp" alt="Kavling Sukamakmur" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Landing Page</span>
           </div>
           <div class="project-card__content">
@@ -437,7 +477,7 @@
         <!-- 10. LeBeef -->
         <div class="project-card reveal" data-category="website">
           <div class="project-card__image">
-            <img src="assets/images/projects/leebeef.png" alt="LeBeef Frozen Food">
+            <img src="assets/images/projects/leebeef.webp" alt="LeBeef Frozen Food" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Website</span>
           </div>
           <div class="project-card__content">
@@ -454,7 +494,7 @@
         <!-- 11. SWM Under Construction -->
         <div class="project-card reveal" data-category="website">
           <div class="project-card__image">
-            <img src="assets/images/projects/swm500.png" alt="SWM Under Construction">
+            <img src="assets/images/projects/swm500.webp" alt="SWM Under Construction" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Creative</span>
           </div>
           <div class="project-card__content">
@@ -489,7 +529,7 @@
         <!-- 13. Hotspot Login -->
         <div class="project-card reveal" data-category="lainnya">
           <div class="project-card__image">
-            <img src="assets/images/projects/hotspot.png" alt="Hotspot Login Page">
+            <img src="assets/images/projects/hotspot.webp" alt="Hotspot Login Page" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Network</span>
           </div>
           <div class="project-card__content">
@@ -556,7 +596,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="footer__copy">© 2026 by <a href="#">idnx</a>. Crafted with ☕ & 💻</p>
+      <p class="footer__copy">© <span id="year">2026</span> by <a href="#hero">idnx</a>. Crafted with ☕ & 💻</p>
       <div class="footer__links">
         <a href="https://facebook.com/saepullrock" target="_blank" rel="noopener" class="footer__link">Facebook</a>
         <a href="https://instagram.com/asep_idung" target="_blank" rel="noopener" class="footer__link">Instagram</a>
@@ -570,6 +610,6 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

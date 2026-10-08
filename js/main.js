@@ -15,28 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initBackToTop();
   initSkillBars();
+
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 });
+
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
 
 /* ========================================
    THEME MANAGEMENT
    ======================================== */
 function initTheme() {
   const toggle = document.getElementById('theme-toggle');
-  const saved = localStorage.getItem('theme');
-
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-  } else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
+  // Tema awal sudah di-set oleh inline script di <head> (anti-flash)
 
   if (toggle) {
     toggle.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      // Reinit particles for new theme colors
+      try { localStorage.setItem('theme', next); } catch (e) { /* storage diblokir */ }
+      // Perbarui warna partikel untuk tema baru
       initParticles();
     });
   }
@@ -71,18 +72,18 @@ function initMobileMenu() {
 
   const links = overlay.querySelectorAll('.mobile-overlay__link');
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    overlay.classList.toggle('open');
-    document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
-  });
+  const setOpen = open => {
+    burger.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
 
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      burger.classList.remove('open');
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+  burger.addEventListener('click', () => setOpen(!overlay.classList.contains('open')));
+  links.forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) setOpen(false);
   });
 }
 
@@ -92,11 +93,13 @@ function initMobileMenu() {
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
+      const href = anchor.getAttribute('href');
+      if (href.length < 2) return; // href="#" bukan selector yang valid
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+      history.replaceState(null, '', href);
     });
   });
 }
@@ -189,16 +192,23 @@ function initTypingEffect() {
   if (!el) return;
 
   const text = el.getAttribute('data-text') || '';
+  const cursor = document.getElementById('typing-cursor');
+
+  if (prefersReducedMotion()) {
+    el.textContent = text;
+    if (cursor) cursor.style.display = 'none';
+    return;
+  }
+
   el.textContent = '';
 
   let i = 0;
-  const cursor = document.getElementById('typing-cursor');
 
   function type() {
     if (i < text.length) {
       el.textContent += text.charAt(i);
       i++;
-      setTimeout(type, 80 + Math.random() * 40);
+      setTimeout(type, 60 + Math.random() * 30);
     } else {
       // Typing done — keep cursor blinking
       if (cursor) cursor.style.animationIterationCount = '8';
@@ -209,7 +219,7 @@ function initTypingEffect() {
   }
 
   // Start after a small delay
-  setTimeout(type, 800);
+  setTimeout(type, 400);
 }
 
 /* ========================================
@@ -217,57 +227,64 @@ function initTypingEffect() {
    ======================================== */
 function initParticles() {
   const canvas = document.getElementById('particle-canvas');
-  if (!canvas) return;
+  if (!canvas || prefersReducedMotion()) return;
 
-  const ctx = canvas.getContext('2d');
-  let animationId;
-  let particles = [];
-
+  // Re-init (mis. saat ganti tema): cukup ganti warna, jangan bikin loop baru
   const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-  const particleColor = isDark ? 'rgba(14, 165, 233,' : 'rgba(2, 132, 199,';
-  const lineColor = isDark ? 'rgba(14, 165, 233,' : 'rgba(2, 132, 199,';
-  const particleCount = Math.min(60, Math.floor(window.innerWidth / 20));
-  const connectionDistance = 150;
-
-  function resize() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+  const color = isDark ? 'rgba(14, 165, 233,' : 'rgba(2, 132, 199,';
+  if (canvas._state) {
+    canvas._state.color = color;
+    return;
   }
 
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.radius = Math.random() * 2 + 0.5;
-      this.opacity = Math.random() * 0.5 + 0.2;
-    }
+  const ctx = canvas.getContext('2d');
+  const state = { color };
+  canvas._state = state;
 
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
+  const connectionDistance = 150;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let particles = [];
+  let width = 0;
+  let height = 0;
+  let animationId = null;
+  let inView = true;
 
-      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `${particleColor}${this.opacity})`;
-      ctx.fill();
-    }
+  function resize() {
+    width = canvas.parentElement.offsetWidth;
+    height = canvas.parentElement.offsetHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   function createParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    const count = Math.min(60, Math.floor(width / 20));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 2 + 0.5,
+      opacity: Math.random() * 0.5 + 0.2
+    }));
   }
 
-  function drawConnections() {
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `${state.color}${p.opacity})`;
+      ctx.fill();
+    }
+
+    ctx.lineWidth = 0.5;
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -279,36 +296,36 @@ function initParticles() {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `${lineColor}${opacity})`;
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = `${state.color}${opacity})`;
           ctx.stroke();
         }
       }
     }
-  }
 
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-
-    drawConnections();
     animationId = requestAnimationFrame(animate);
   }
 
-  // Cancel previous animation if reinitializing
-  if (canvas._animId) cancelAnimationFrame(canvas._animId);
+  // Hanya animasi saat hero terlihat & tab aktif — hemat CPU/baterai
+  function syncRunning() {
+    const shouldRun = inView && !document.hidden;
+    if (shouldRun && animationId === null) {
+      animationId = requestAnimationFrame(animate);
+    } else if (!shouldRun && animationId !== null) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  }
+
+  new IntersectionObserver(entries => {
+    inView = entries[0].isIntersecting;
+    syncRunning();
+  }).observe(canvas);
+  document.addEventListener('visibilitychange', syncRunning);
 
   resize();
   createParticles();
-  animate();
+  syncRunning();
 
-  canvas._animId = animationId;
-
-  // Debounced resize
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
