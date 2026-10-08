@@ -272,10 +272,10 @@
           </div>
           <div class="project-card__content">
             <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">ERP PT. Santi Wijaya Meat</button></h3>
-            <p class="project-card__desc">Sistem ERP full-scale untuk perusahaan daging wholesale — modul pembelian, penjualan, barcode tracking, manajemen stok, dan keuangan. Migrasi dari legacy PHP ke arsitektur modern.</p>
+            <p class="project-card__desc">Sistem ERP full-scale untuk perusahaan daging wholesale — modul pembelian, penjualan, barcode tracking, manajemen stok, dan keuangan. Migrasi dari legacy PHP ke arsitektur modern, dijaga ±170 automated test.</p>
             <div class="project-card__tags">
-              <span class="tag">Laravel 11</span>
-              <span class="tag">Filament v3</span>
+              <span class="tag">Laravel 12</span>
+              <span class="tag">Filament 3</span>
               <span class="tag">MySQL</span>
               <span class="tag">OpenSpout</span>
             </div>
@@ -285,15 +285,16 @@
         <!-- 2. Sistem Presensi GPS -->
         <div class="project-card reveal" data-category="aplikasi">
           <div class="project-card__image">
-            <img src="assets/images/projects/presensi.webp" alt="Sistem Presensi GPS" width="960" height="644" loading="lazy" decoding="async">
+            <img src="assets/images/projects/presensi.webp" alt="Sistem Presensi Wajah & GPS" width="960" height="644" loading="lazy" decoding="async">
             <span class="badge project-card__badge">Web App</span>
           </div>
           <div class="project-card__content">
-            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">Sistem Presensi GPS & Selfie</button></h3>
-            <p class="project-card__desc">Aplikasi absensi karyawan berbasis PWA — validasi selfie, geofencing GPS, multi-lokasi, manajemen shift, helpdesk tiket, dan export laporan Excel/PDF.</p>
+            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">Sistem Presensi Wajah & GPS</button></h3>
+            <p class="project-card__desc">Aplikasi absensi karyawan berbasis PWA, dipakai ±200 karyawan di produksi — verifikasi wajah (face recognition), geofencing GPS, multi-lokasi, manajemen shift, bot Telegram AI untuk helpdesk, dan export laporan Excel/PDF.</p>
             <div class="project-card__tags">
-              <span class="tag">Laravel 11</span>
-              <span class="tag">Filament v3</span>
+              <span class="tag">Laravel 13</span>
+              <span class="tag">Filament 5</span>
+              <span class="tag">Face Recognition</span>
               <span class="tag">PWA</span>
               <span class="tag">GPS</span>
             </div>
@@ -396,11 +397,12 @@
           </div>
           <div class="project-card__content">
             <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">ARTIC Company Profile</button></h3>
-            <p class="project-card__desc">Website company profile modern untuk Transwater Robery Indonesia (ARTIC) — brand air minum. Hero section visual, galeri produk, dan halaman kontak.</p>
+            <p class="project-card__desc">Website company profile bilingual (ID/EN) untuk PT Transwater Roberi Indonesia (ARTIC) — brand air minum. Katalog produk, form permintaan penawaran B2B, dan panel admin untuk mengelola konten sendiri.</p>
             <div class="project-card__tags">
-              <span class="tag">HTML5</span>
+              <span class="tag">Next.js 16</span>
+              <span class="tag">Payload CMS</span>
               <span class="tag">Tailwind CSS</span>
-              <span class="tag">JavaScript</span>
+              <span class="tag">i18n</span>
             </div>
           </div>
         </div>
@@ -456,25 +458,61 @@
           </div>
         </div>
 
-        <!-- 12. AI Job Search -->
+        <!-- 12. Asisten AI Fatih -->
         <div class="project-card reveal" data-category="lainnya">
           <div class="project-card__image project-card__image--placeholder">
             <span>🤖</span>
-            <span class="badge project-card__badge">AI Tool</span>
+            <span class="badge project-card__badge">AI Bot</span>
           </div>
           <div class="project-card__content">
-            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">AI Job Search Assistant</button></h3>
-            <p class="project-card__desc">Framework pencarian kerja berbasis AI — auto-generate CV & cover letter LaTeX, evaluasi fit scoring, dan scraping multi-portal lowongan kerja.</p>
+            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">Asisten AI "Fatih"</button></h3>
+            <p class="project-card__desc">Bot Telegram & WhatsApp yang menggali kebutuhan calon klien secara otomatis — bertanya, merangkum brief proyek, membaca screenshot, dan meneruskan pertanyaan sulit ke saya.</p>
             <div class="project-card__tags">
               <span class="tag">Python</span>
-              <span class="tag">Claude AI</span>
-              <span class="tag">LaTeX</span>
-              <span class="tag">Bun</span>
+              <span class="tag">Gemini AI</span>
+              <span class="tag">Telegram</span>
+              <span class="tag">WhatsApp API</span>
             </div>
           </div>
         </div>
 
-        <!-- 13. Hotspot Login -->
+        <!-- 13. Cetak Label Marsha Beef -->
+        <div class="project-card reveal" data-category="aplikasi">
+          <div class="project-card__image project-card__image--placeholder">
+            <span>🏷️</span>
+            <span class="badge project-card__badge">Web App</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">Cetak Label Marsha Beef</button></h3>
+            <p class="project-card__desc">Aplikasi cetak label produk daging — master produk, tanggal produksi & kedaluwarsa, berat, barcode, dan cetak langsung ke printer thermal ukuran 100×75 mm.</p>
+            <div class="project-card__tags">
+              <span class="tag">Laravel 13</span>
+              <span class="tag">Filament 5</span>
+              <span class="tag">JsBarcode</span>
+              <span class="tag">Thermal Print</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. FizhNetFlow -->
+        <div class="project-card reveal" data-category="lainnya">
+          <div class="project-card__image project-card__image--placeholder">
+            <span>🛜</span>
+            <span class="badge project-card__badge">Network</span>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title"><button type="button" class="project-card__open" aria-haspopup="dialog">FizhNetFlow</button></h3>
+            <p class="project-card__desc">Panel PWA untuk mengatur jadwal akses internet per perangkat (parental control) — template sesi harian, blok MAC, dan terapkan aturan ke router MikroTik lewat SSH.</p>
+            <div class="project-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">MikroTik</span>
+              <span class="tag">PWA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Hotspot Login -->
         <div class="project-card reveal" data-category="lainnya">
           <div class="project-card__image">
             <img src="assets/images/projects/hotspot.webp" alt="Hotspot Login Page" width="960" height="644" loading="lazy" decoding="async">
