@@ -162,6 +162,18 @@ function initProjectFilter() {
 
   if (buttons.length === 0) return;
 
+  // Tampilkan jumlah proyek per kategori, mis. "Aplikasi (6)"
+  buttons.forEach(btn => {
+    const filter = btn.getAttribute('data-filter');
+    const count = filter === 'all'
+      ? cards.length
+      : [...cards].filter(card => card.getAttribute('data-category') === filter).length;
+    const badge = document.createElement('span');
+    badge.className = 'filter-btn__count';
+    badge.textContent = count;
+    btn.append(badge);
+  });
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       // Update active button

@@ -919,6 +919,23 @@ section {
   border-color: var(--border-strong);
 }
 
+.filter-btn__count {
+  display: inline-block;
+  min-width: 1.4em;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  text-align: center;
+  background: var(--code-bg);
+}
+
+.filter-btn.active .filter-btn__count {
+  background: rgba(255, 255, 255, 0.22);
+}
+
 .filter-btn.active {
   color: #fff;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -959,10 +976,6 @@ section {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: linear-gradient(135deg, var(--bg-tertiary), var(--surface));
-}
-
-.project-card__image img[src$="ai_job.png"] {
-  /* Fallback handled in HTML with onerror */
 }
 
 .project-card__image--placeholder {
