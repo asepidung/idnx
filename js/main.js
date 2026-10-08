@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initScrollReveal();
   initProjectFilter();
+  initProjectModal();
   initTypingEffect();
   initParticles();
   initBackToTop();
-  initSkillBars();
 
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
@@ -352,37 +352,77 @@ function initBackToTop() {
   }, { passive: true });
 
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
   });
 }
 
 /* ========================================
-   SKILL BARS ANIMATION
+   PROJECT DETAIL MODAL
    ======================================== */
-function initSkillBars() {
-  const bars = document.querySelectorAll('.skill-item__fill');
-  if (bars.length === 0) return;
+function initProjectModal() {
+  const modal = document.getElementById('project-modal');
+  if (!modal || typeof modal.showModal !== 'function') return;
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fills = entry.target.querySelectorAll('.skill-item__fill');
-          fills.forEach(fill => {
-            const width = fill.getAttribute('data-width');
-            if (width) {
-              fill.style.width = width;
-            }
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+  const media = document.getElementById('project-modal-media');
+  const badge = document.getElementById('project-modal-badge');
+  const title = document.getElementById('project-modal-title');
+  const desc = document.getElementById('project-modal-desc');
+  const tags = document.getElementById('project-modal-tags');
+  const actions = document.getElementById('project-modal-actions');
+  let lastTrigger = null;
 
-  // Observe skill groups rather than individual bars
-  document.querySelectorAll('.skill-group').forEach(group => {
-    observer.observe(group);
+  const linkButton = (href, label, primary) => {
+    const a = document.createElement('a');
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = primary ? 'btn btn--primary' : 'btn btn--outline';
+    a.textContent = label;
+    return a;
+  };
+
+  function open(card, trigger) {
+    const img = card.querySelector('.project-card__image img');
+    media.replaceChildren();
+    media.classList.toggle('project-modal__media--placeholder', !img);
+    if (img) {
+      const big = img.cloneNode();
+      big.loading = 'eager';
+      media.append(big);
+    } else {
+      const emoji = card.querySelector('.project-card__image--placeholder > span:first-child');
+      media.textContent = emoji ? emoji.textContent : '';
+    }
+
+    badge.textContent = card.querySelector('.project-card__badge')?.textContent || '';
+    title.textContent = card.querySelector('.project-card__open').textContent;
+    desc.textContent = card.querySelector('.project-card__desc').textContent;
+    tags.replaceChildren(...[...card.querySelectorAll('.project-card__tags .tag')].map(t => t.cloneNode(true)));
+
+    actions.replaceChildren();
+    if (card.dataset.url) actions.append(linkButton(card.dataset.url, 'Lihat Demo ↗', true));
+    if (card.dataset.repo) actions.append(linkButton(card.dataset.repo, 'Source Code ↗', false));
+    actions.hidden = actions.childElementCount === 0;
+
+    lastTrigger = trigger;
+    modal.showModal();
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    const trigger = card.querySelector('.project-card__open');
+    if (trigger) trigger.addEventListener('click', () => open(card, trigger));
+  });
+
+  document.getElementById('project-modal-close')?.addEventListener('click', () => modal.close());
+
+  // Klik di backdrop (di luar konten) menutup modal
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.close();
+  });
+
+  modal.addEventListener('close', () => {
+    document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
   });
 }
