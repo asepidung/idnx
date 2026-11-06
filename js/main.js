@@ -32,10 +32,16 @@ function initTheme() {
   // Tema awal sudah di-set oleh inline script di <head> (anti-flash)
 
   if (toggle) {
+    const syncLabel = theme => {
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'Ganti ke tema terang' : 'Ganti ke tema gelap');
+    };
+    syncLabel(document.documentElement.getAttribute('data-theme'));
+
     toggle.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
+      syncLabel(next);
       try { localStorage.setItem('theme', next); } catch (e) { /* storage diblokir */ }
       // Perbarui warna partikel untuk tema baru
       initParticles();

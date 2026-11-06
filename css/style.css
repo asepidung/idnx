@@ -347,6 +347,9 @@ section {
 }
 
 .navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-mono);
   font-size: 1.3rem;
   font-weight: 700;
@@ -365,6 +368,9 @@ section {
 }
 
 .navbar__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
@@ -375,7 +381,7 @@ section {
 .navbar__link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: 6px;
   left: 0;
   width: 0;
   height: 2px;
@@ -400,16 +406,25 @@ section {
   gap: 0.75rem;
 }
 
-/* Theme Toggle */
+/* Theme Toggle — area klik 44px, tampilan track tetap kecil */
 .theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.theme-toggle__track {
+  position: relative;
+  display: block;
   width: 44px;
   height: 24px;
   border-radius: var(--radius-full);
   background: var(--toggle-bg);
-  position: relative;
-  transition: background var(--transition-base);
   border: 1px solid var(--border);
-  cursor: pointer;
+  transition: background var(--transition-base);
 }
 
 .theme-toggle__knob {
@@ -420,11 +435,16 @@ section {
   height: 18px;
   border-radius: 50%;
   background: var(--accent);
+  color: #fff;
   transition: transform var(--transition-base);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+}
+
+.theme-toggle__knob svg {
+  width: 12px;
+  height: 12px;
 }
 
 [data-theme="light"] .theme-toggle__knob {
@@ -432,18 +452,20 @@ section {
 }
 
 .theme-icon-light { display: none; }
-[data-theme="light"] .theme-icon-light { display: inline; }
+[data-theme="light"] .theme-icon-light { display: block; }
 [data-theme="light"] .theme-icon-dark { display: none; }
 
 /* Mobile Menu */
 .navbar__burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  width: 28px;
+  width: 44px;
+  height: 44px;
+  padding: 0 8px;
   cursor: pointer;
   z-index: calc(var(--z-nav) + 2);
-  padding: 6px 0;
 }
 
 .navbar__burger span {
@@ -817,7 +839,19 @@ section {
 }
 
 .skill-group__title .icon {
-  font-size: 1.2rem;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+.skill-group__title .icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .tech-list {
@@ -903,6 +937,9 @@ section {
 }
 
 .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: 0.5rem 1.2rem;
   font-size: 0.85rem;
   font-weight: 500;
@@ -1110,8 +1147,8 @@ section {
   top: 0.75rem;
   right: 0.75rem;
   z-index: 1;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1256,6 +1293,9 @@ section {
 }
 
 .footer__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 0.85rem;
   color: var(--text-muted);
   transition: color var(--transition-fast);
